@@ -35,8 +35,6 @@ async def daily_report():
     #grps = await sv.get_enable_groups()
     n = BBangumi()
     await sv.broadcast('又是美好的一天(*•̀ᴗ•́*)و\n今天的新番有\n' + n.get_today(),'bili_bangumi_broadcast',0)
-    global cache
-    cache = list()
     
 @sv.scheduled_job('cron',minute='*/5')
 async def update_report():
