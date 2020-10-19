@@ -41,3 +41,10 @@ class BBangumi(object):
                     msg = msg + '{}\n    {} 更新 {} \n\n'.format(k.get('title'),k.get('pub_time'),k.get('pub_index'))
         return msg
     
+    def get_today_data(self):
+        if not self.data:
+            self.data = self.get_data()
+        for i in self.data:
+            if i.get('is_today'):
+                return i.get('seasons')
+    
