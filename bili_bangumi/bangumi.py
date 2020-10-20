@@ -44,7 +44,7 @@ async def sub(bot,ctx):
             if ctx['group_id'] in o.get(k):
                 bgms.append(k)
         o = SQL('All_Sub')
-        await bot.send(ctx,'群{}番剧订阅列表:\n⛩⛩全部推送:{}\n⛩'.format(str(ctx['group_id']),ctx['group_id'] in o.get('data')) + '\n⛩'.join(i for i in bgms))
+        await bot.send(ctx,'群{}番剧订阅列表:\n🎀🎀全部推送:{}\n🎀'.format(str(ctx['group_id']),ctx['group_id'] in o.get('data')) + '\n🎀'.join(i for i in bgms))
         
     elif msg == '番剧订阅 all':
         o = SQL('All_Sub')
@@ -73,7 +73,7 @@ async def sub(bot,ctx):
         else:
             sub_user.append({'id':ctx['user_id'],'gid':ctx['group_id']})
         st = list(st)
-        await bot.send(ctx,'番剧列表:\n⛩' + '\n⛩'.join('{}.{}⛩'.format(i+1,st[i]) for i in range(len(st))))
+        await bot.send(ctx,'番剧列表:\n🎀' + '\n🎀'.join('{}.{}'.format(i+1,st[i]) for i in range(len(st))))
         
         
     elif {'id':ctx['user_id'],'gid':ctx['group_id']} in sub_user:
@@ -84,7 +84,7 @@ async def sub(bot,ctx):
             grp = set() if not o.get(bgm) else o.get(bgm)
             grp.add(ctx['group_id'])
             o[bgm]=grp
-            await bot.send(ctx,'已为群{}添加番剧订阅：\n⛩{}⛩'.format(str(ctx['group_id']),bgm))
+            await bot.send(ctx,'已为群{}添加番剧订阅：\n🎀{}'.format(str(ctx['group_id']),bgm))
         else:
             await bot.send(ctx,'你发的是什么鸡掰啦バカー')
     elif {'id':ctx['user_id'],'gid':ctx['group_id']} in unsub_user:
@@ -95,7 +95,7 @@ async def sub(bot,ctx):
             grp = set() if not o.get(bgm) else o.get(bgm)
             grp.discard(ctx['group_id'])
             o[bgm]=grp
-            await bot.send(ctx,'已为群{}取消番剧订阅：\n⛩{}⛩'.format(str(ctx['group_id']),bgm))
+            await bot.send(ctx,'已为群{}取消番剧订阅：\n🎀{}'.format(str(ctx['group_id']),bgm))
         else:
             await bot.send(ctx,'你发的是什么鸡掰啦バカー')
         
@@ -109,7 +109,7 @@ async def test_d(se):
     print(k)
     sv.logger.info('检测到番剧更新:{}'.format(k.get('title')))
     msg = MessageSegment.image(k.get('cover'))
-    msg = msg + '⛩{}⛩\n   更新了 {} \n\n{}'.format(k.get('title'),k.get('pub_index'),k.get('url'))
+    msg = msg + '🎀{}\n   更新了 {} \n\n{}'.format(k.get('title'),k.get('pub_index'),k.get('url'))
     o = SQL('Subscription')
     grps = set() if not o.get(k.get('title')) else o.get(k.get('title'))
     o = SQL('All_Sub')
@@ -143,7 +143,7 @@ async def update_report():
                     k = new_data[i]
                     sv.logger.info('检测到番剧更新:{}'.format(k.get('title')))
                     msg = MessageSegment.image(k.get('cover'))
-                    msg = msg + '⛩{}⛩\n   更新了 {} \n\n{}'.format(k.get('title'),k.get('pub_index'),k.get('url'))
+                    msg = msg + '🎀{}\n   更新了 {} \n\n{}'.format(k.get('title'),k.get('pub_index'),k.get('url'))
                     o = SQL('Subscription')
                     grps = set() if not o.get(k.get('title')) else o.get(k.get('title'))
                     o = SQL('All_Sub')
