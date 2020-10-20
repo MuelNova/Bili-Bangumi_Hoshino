@@ -26,7 +26,7 @@ class BBangumi(object):
                 msg = '{} | 星期{}\n'.format(i.get('date'),week_c[int(i.get('day_of_week'))])
                 for k in i['seasons']:
                     msg = msg + MessageSegment.image(k.get('cover'))
-                    msg = msg + '{}\n    {} 更新 {} \n\n'.format(k.get('title'),k.get('pub_time'),k.get('pub_index'))
+                    msg = msg + '{}\n🎀    {} 更新 {} \n\n'.format(k.get('title'),k.get('pub_time'),k.get('pub_index'))
                 return msg
      
     def get_date(self,s):
@@ -38,7 +38,7 @@ class BBangumi(object):
                 msg = '{} | 星期{}\n'.format(i.get('date'),week_c[int(i.get('day_of_week'))])
                 for k in i['seasons']:
                     msg = msg + MessageSegment.image(k.get('cover'))
-                    msg = msg + '{}\n    {} 更新 {} \n\n'.format(k.get('title'),k.get('pub_time'),k.get('pub_index'))
+                    msg = msg + '{}\n🎀    {} 更新 {} \n\n'.format(k.get('title'),k.get('pub_time'),k.get('pub_index'))
         return msg
     
     def get_today_data(self):
