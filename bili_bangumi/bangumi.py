@@ -5,7 +5,8 @@ import hoshino
 from .app.bili import BBangumi
 from .app.util import SQL
 
-sv = Service('bili_bangumi_broadcast',enable_on_default=False)
+sv = Service('bili_bangumi_broadcast',enable_on_default=False,bundle='bili_bangumi')
+sv2 = Service('bili_bangumi_daily',enable_on_default=False,bundle='bili_bangumi')
 bot = hoshino.get_bot()
 cache = list()
 sub_user = list()
@@ -119,7 +120,7 @@ async def test_d(se):
         await bot.send_group_msg(group_id=i,message='有番剧更新啦(*•̀ᴗ•́*)و\n\n' + msg)
 '''
 
-@sv.scheduled_job('cron',hour='0',minute='5')
+@sv2.scheduled_job('cron',hour='0',minute='5')
 async def daily_report():
     #grps = await sv.get_enable_groups()
     n = BBangumi()
