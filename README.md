@@ -11,8 +11,10 @@ A plugin for Hoshinobot to seek bangumi on Bilibili
  - 每日推送当日新番(需要开启服务`bili_bangumi_broadcast`)
 
 # Usage
+ ## 不需要服务
  - `周几/星期几新番`查询该日番剧时间表
  - `今日新番`查询当天的番剧时间表
+ ## 需要服务
  - `番剧(取消)订阅`对番剧进行订阅/取消订阅
  - `查询番剧订阅`查询本群订阅的番剧
  - `番剧订阅 all/!all`对所有番剧订阅/取消订阅
