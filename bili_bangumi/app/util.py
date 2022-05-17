@@ -7,7 +7,7 @@ if not os.path.isdir(base_path):
     os.mkdir(base_path)
 class SQL(SqliteDict):
     def __init__(self,file):
-        super().__init__(os.path.join(base_path ,file + '.sqlite'),autocommit=True)
+        super().__init__(os.path.join(base_path, f'{file}.sqlite'), autocommit=True)
     
     
     
